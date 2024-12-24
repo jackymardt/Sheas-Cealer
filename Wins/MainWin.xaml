@@ -57,8 +57,7 @@
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
+                <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
             </Grid.ColumnDefinitions>
 
@@ -74,6 +73,24 @@
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>
+            <Button Grid.Column="1" Margin="5"
+                    Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
+                    Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
+                    ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
+                    Click="EditConfButton_Click" />
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
+                <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Margin="5" d:Content="# # # # # #"
+                    IsEnabled="{Binding UpstreamUrl, Converter={x:Static convs:MainConv.MainUpdateHostButtonIsEnabledConv}}"
+                    Content="{Binding IsUpstreamHostUtd, Converter={x:Static convs:MainConv.MainUpdateHostButtonContentConv}}"
+                    ToolTip="{x:Static consts:MainConst.UpdateUpstreamHostButtonToolTip}"
+                    Click="UpdateUpstreamHostButton_Click" />
             <Button x:Name="NginxButton"
                     Grid.Column="1" Margin="5" d:Content="# # # #"
                     Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
@@ -111,7 +128,7 @@
                 </Button.Content>
             </Button>
         </Grid>
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
@@ -154,45 +171,34 @@
                 </Button.IsEnabled>
             </Button>
         </Grid>
-        <Grid Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
-            </Grid.ColumnDefinitions>
-
-            <Button Grid.Column="0" Margin="5" d:Content="# # # # # #"
-                    IsEnabled="{Binding UpstreamUrl, Converter={x:Static convs:MainConv.MainUpdateHostButtonIsEnabledConv}}"
-                    Content="{Binding IsUpstreamHostUtd, Converter={x:Static convs:MainConv.MainUpdateHostButtonContentConv}}"
-                    ToolTip="{x:Static consts:MainConst.UpdateUpstreamHostButtonToolTip}"
-                    Click="UpdateUpstreamHostButton_Click" />
-            <Button x:Name="EditHostsConfButton"
-                    Grid.Column="1" Margin="5"
-                    Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
-                    Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
-                    ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
-                    Click="EditConfButton_Click" />
-        </Grid>
         <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.05*" />
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Margin="5"
                     Content="{x:Static consts:MainConst.SettingsButtonContent}"
                     ToolTip="{x:Static consts:MainConst.SettingsButtonToolTip}"
                     Click="SettingsButton_Click" />
-            <Button Focusable="False"
-                    Grid.Column="1" Margin="5" d:Content="# # # #"
+            <Button x:Name="EditHostsConfButton"
+                    Grid.Column="1" Margin="5"
                     Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
-                    Content="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonContentConv}}"
-                    ToolTip="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonToolTipConv}}"
-                    Click="NoClickButton_Click" />
+                    Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
+                    ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
+                    Click="EditConfButton_Click" />
             <Button Grid.Column="2" Margin="5"
                     Content="{x:Static consts:MainConst.AboutButtonContent}"
                     ToolTip="{x:Static consts:MainConst.AboutButtonToolTip}"
                     Click="AboutButton_Click" />
+            <Button Focusable="False"
+                    Grid.Column="3" Margin="5" d:Content="# # # #"
+                    Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
+                    Content="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonContentConv}}"
+                    ToolTip="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonToolTipConv}}"
+                    Click="NoClickButton_Click" />
         </Grid>
     </Grid>
 </Window>
