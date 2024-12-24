@@ -183,7 +183,7 @@
                     ToolTip="{x:Static consts:MainConst.SettingsButtonToolTip}"
                     Click="SettingsButton_Click" />
             <Button x:Name="EditHostsConfButton"
-                    Grid.Column="1" Margin="5"
+                    Grid.Column="1" Margin="5" d:Visibility="Visible"
                     Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
                     ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
                     Click="EditConfButton_Click">
@@ -195,7 +195,7 @@
                 </Button.Visibility>
             </Button>
             <Button Focusable="False"
-                    Grid.Column="1" Margin="5" d:Content="# # # #"
+                    Grid.Column="1" Margin="5" d:Visibility="Collapsed" d:Content="# # # #"
                     Content="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonContentConv}}"
                     ToolTip="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonToolTipConv}}"
                     Click="NoClickButton_Click">
