@@ -176,7 +176,6 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainProxyColumnWidthConv}}" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="0.05*" />
             </Grid.ColumnDefinitions>
 
             <Button Grid.Column="0" Margin="5"
@@ -185,20 +184,32 @@
                     Click="SettingsButton_Click" />
             <Button x:Name="EditHostsConfButton"
                     Grid.Column="1" Margin="5"
-                    Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
                     Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
                     ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
-                    Click="EditConfButton_Click" />
+                    Click="EditConfButton_Click">
+                <Button.Visibility>
+                    <MultiBinding Converter="{x:Static convs:MainConv.MainEditHostsConfButtonVisibilityConv}">
+                        <Binding Source="{x:Static consts:MainConst.IsAdmin}" />
+                        <Binding Source="{x:Static consts:MainConst.IsMidnight}" />
+                    </MultiBinding>
+                </Button.Visibility>
+            </Button>
+            <Button Focusable="False"
+                    Grid.Column="1" Margin="5" d:Content="# # # #"
+                    Content="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonContentConv}}"
+                    ToolTip="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonToolTipConv}}"
+                    Click="NoClickButton_Click">
+                <Button.Visibility>
+                    <MultiBinding Converter="{x:Static convs:MainConv.MainNoClickButtonVisibilityConv}">
+                        <Binding Source="{x:Static consts:MainConst.IsAdmin}" />
+                        <Binding Source="{x:Static consts:MainConst.IsMidnight}" />
+                    </MultiBinding>
+                </Button.Visibility>
+            </Button>
             <Button Grid.Column="2" Margin="5"
                     Content="{x:Static consts:MainConst.AboutButtonContent}"
                     ToolTip="{x:Static consts:MainConst.AboutButtonToolTip}"
                     Click="AboutButton_Click" />
-            <Button Focusable="False"
-                    Grid.Column="3" Margin="5" d:Content="# # # #"
-                    Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
-                    Content="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonContentConv}}"
-                    ToolTip="{Binding IsFlashing, Converter={x:Static convs:MainConv.MainNoClickButtonToolTipConv}}"
-                    Click="NoClickButton_Click" />
         </Grid>
     </Grid>
 </Window>

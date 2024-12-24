@@ -12,6 +12,7 @@ internal abstract partial class MainConst : MainMultilangConst
     { BrowserPathMode, UpstreamUrlMode, ExtraArgsMode }
 
     public static bool IsAdmin => new WindowsPrincipal(WindowsIdentity.GetCurrent()).IsInRole(WindowsBuiltInRole.Administrator);
+    public static bool IsMidnight => DateTime.Now.Hour >= 0 && DateTime.Now.Hour <= 6 && DateTime.Now.Minute == 0;
 
     internal static string EdgeBrowserRegistryPath => @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\msedge.exe";
     internal static string ChromeBrowserRegistryPath => @"SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\chrome.exe";
