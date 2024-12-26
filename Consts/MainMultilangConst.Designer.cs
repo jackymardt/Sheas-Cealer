@@ -277,6 +277,51 @@ namespace Sheas_Cealer.Consts {
         }
         
         /// <summary>
+        ///   查找类似 Global Coproxy is initing 的本地化字符串。
+        /// </summary>
+        public static string CoproxyButtonIsInitingContent {
+            get {
+                return ResourceManager.GetString("CoproxyButtonIsInitingContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Stop Global Coproxy 的本地化字符串。
+        /// </summary>
+        public static string CoproxyButtonIsRunningContent {
+            get {
+                return ResourceManager.GetString("CoproxyButtonIsRunningContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Click to stop the local Nginx × Mihomo Combo 的本地化字符串。
+        /// </summary>
+        public static string CoproxyButtonIsRunningToolTip {
+            get {
+                return ResourceManager.GetString("CoproxyButtonIsRunningToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Start Global Coproxy 的本地化字符串。
+        /// </summary>
+        public static string CoproxyButtonIsStoppedContent {
+            get {
+                return ResourceManager.GetString("CoproxyButtonIsStoppedContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Click to launch a local Nginx × Mihomo Combo 的本地化字符串。
+        /// </summary>
+        public static string CoproxyButtonIsStoppedToolTip {
+            get {
+                return ResourceManager.GetString("CoproxyButtonIsStoppedToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Edit Hosts Conf 的本地化字符串。
         /// </summary>
         public static string EditHostsConfButtonContent {

@@ -73,11 +73,31 @@
                     </MultiBinding>
                 </Button.IsEnabled>
             </Button>
-            <Button Grid.Column="1" Margin="5"
+            <Button x:Name="CoproxyButton"
+                    Grid.Column="1" Margin="5"
                     Visibility="{Binding Source={x:Static consts:MainConst.IsAdmin}, Converter={x:Static convs:MainConv.MainAdminControlVisibilityConv}}"
-                    Content="{x:Static consts:MainConst.EditHostsConfButtonContent}"
-                    ToolTip="{x:Static consts:MainConst.EditHostsConfButtonToolTip}"
-                    Click="EditConfButton_Click" />
+                    ToolTip="{Binding IsCoproxyRunning, Converter={x:Static convs:MainConv.MainCoproxyButtonToolTipConv}}"
+                    Click="LaunchButton_Click" PreviewMouseDown="LaunchButton_PreviewMouseDown">
+                <Button.IsEnabled>
+                    <MultiBinding Converter="{x:Static convs:MainConv.MainCoproxyButtonIsEnabledConv}">
+                        <Binding Path="IsConginxIniting" />
+                        <Binding Path="IsComihomoIniting" />
+                        <Binding Path="IsNginxExist" />
+                        <Binding Path="IsNginxIniting" />
+                        <Binding Path="IsNginxRunning" />
+                        <Binding Path="IsMihomoExist" />
+                        <Binding Path="IsMihomoIniting" />
+                        <Binding Path="IsMihomoRunning" />
+                    </MultiBinding>
+                </Button.IsEnabled>
+                <Button.Content>
+                    <MultiBinding Converter="{x:Static convs:MainConv.MainCoproxyButtonContentConv}">
+                        <Binding Path="IsCoproxyRunning" />
+                        <Binding Path="IsConginxIniting" />
+                        <Binding Path="IsComihomoIniting" />
+                    </MultiBinding>
+                </Button.Content>
+            </Button>
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>

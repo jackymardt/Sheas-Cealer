@@ -11,7 +11,7 @@ internal class MainProxyButtonIsEnabledConv : IMultiValueConverter
         bool isProxyExist = (bool)values[0];
         bool isProxyIniting = (bool)values[1];
 
-        return !isProxyIniting && isProxyExist;
+        return isProxyExist && !isProxyIniting;
     }
 
     public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) => throw new NotImplementedException();

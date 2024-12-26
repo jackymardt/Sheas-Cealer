@@ -5,5 +5,5 @@ namespace Sheas_Cealer.Proces;
 
 internal class MihomoProc : Proc
 {
-    internal MihomoProc() : base(MainConst.MihomoPath) { }
+    internal MihomoProc(bool isComihomo) : base(isComihomo ? MainConst.ComihomoPath : MainConst.MihomoPath) { }
 }

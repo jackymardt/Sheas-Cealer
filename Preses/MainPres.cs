@@ -5,6 +5,7 @@ using Sheas_Cealer.Props;
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using File = System.IO.File;
 
 namespace Sheas_Cealer.Preses;
@@ -73,6 +74,16 @@ internal partial class MainPres : GlobalPres
 
     [ObservableProperty]
     private bool isUpstreamHostUtd = true;
+
+    [ObservableProperty]
+    private bool isCoproxyRunning = Process.GetProcessesByName(Path.GetFileNameWithoutExtension(MainConst.ConginxPath)).Length != 0 &&
+        Process.GetProcessesByName(Path.GetFileNameWithoutExtension(MainConst.ComihomoPath)).Length != 0;
+
+    [ObservableProperty]
+    private bool isConginxIniting = false;
+
+    [ObservableProperty]
+    private bool isComihomoIniting = false;
 
     [ObservableProperty]
     private bool isNginxExist = File.Exists(MainConst.NginxPath);

@@ -27,6 +27,9 @@ internal abstract partial class MainConst : MainMultilangConst
     internal static string HostsConfStartMarker => $"# Cealing Nginx Start{Environment.NewLine}";
     internal static string HostsConfEndMarker => "# Cealing Nginx End";
 
+    internal static string ConginxPath => Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase!, "Cealing-Conginx.exe");
+    internal static string ComihomoPath => Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase!, "Cealing-Comihomo.exe");
+
     internal static string NginxPath => Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase!, "Cealing-Nginx.exe");
     internal static string NginxConfPath => Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase!, "nginx.conf");
     internal static string NginxLogsPath => Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase!, "logs");

@@ -4,6 +4,9 @@ internal static class MainConv
 {
     public static MainAdminControlVisibilityConv MainAdminControlVisibilityConv => new();
     public static MainBrowserButtonIsEnabledConv MainBrowserButtonIsEnabledConv => new();
+    public static MainCoproxyButtonContentConv MainCoproxyButtonContentConv => new();
+    public static MainCoproxyButtonIsEnabledConv MainCoproxyButtonIsEnabledConv => new();
+    public static MainCoproxyButtonToolTipConv MainCoproxyButtonToolTipConv => new();
     public static MainEditHostsConfButtonVisibilityConv MainEditHostsConfButtonVisibilityConv => new ();
     public static MainMihomoButtonContentConv MainMihomoButtonContentConv => new();
     public static MainMihomoButtonToolTipConv MainMihomoButtonToolTipConv => new();
